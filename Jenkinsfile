@@ -1,5 +1,5 @@
 pipeline {
-    agent any // Esta línea es correcta y solo debe ir una vez
+    agent any 
 
     stages {
         stage('Checkout') {
@@ -34,18 +34,16 @@ pipeline {
         }
     }
 
-    // El bloque 'post' va aquí, al final del único bloque 'pipeline'
     post {
         always {
             echo 'Pipeline finalizado. Validando resultados...'
         }
         success {
             echo '¡Pipeline ejecutado de manera correcta!'
-            // Envío de correo de éxito
-            mail bcc: '', body: "El Pipeline '${env.JOB_NAME}' - Build #${env.BUILD_NUMBER} ha sido exitoso.\nURL: ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: "Jenkins CI: ${env.JOB_NAME} - ÉXITO", to: 'cguacaneme04@gmail.com'
+            mail bcc: '', body: "El trabajo '${env.JOB_NAME}' - con numero de carga  #${env.BUILD_NUMBER} ha sido exitoso.\nURL: ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: "Jenkins CI: ${env.JOB_NAME} - ÉXITO", to: 'cguacaneme04@gmail.com'
         }
         failure {
-            echo 'Se ha presentado un error durante la ejecución del pipeline.'
+            echo 'Se ha presentado un error durante la ejecución del comando.'
             // Envío de correo de fallo
             mail bcc: '', body: "El Pipeline '${env.JOB_NAME}' - Build #${env.BUILD_NUMBER} ha FALLADO.\nPor favor, revisa el log:\nURL: ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: "Jenkins CI: ${env.JOB_NAME} - FALLO CRÍTICO", to: 'cguacaneme04@gmail.com'
         }
