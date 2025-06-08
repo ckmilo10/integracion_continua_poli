@@ -40,7 +40,7 @@ pipeline {
         }
         success {
             echo '¡Pipeline ejecutado de manera correcta!'
-            mail bcc: '', body: "El trabajo '${env.JOB_NAME}' - con numero de carga  #${env.BUILD_NUMBER} ha sido exitoso.\nURL: ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: "Jenkins CI: ${env.JOB_NAME} - ÉXITO", to: 'cguacaneme04@gmail.com'
+            mail bcc: '', body: "El trabajo '${env.JOB_NAME}' - con numero de carga  #${env.BUILD_NUMBER} ha sido exitoso.\nURL: ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: "MENSAJE DE Jenkins CI: ${env.JOB_NAME} - ÉXITO", to: 'cguacaneme04@gmail.com'
         }
         failure {
             echo 'Se ha presentado un error durante la ejecución del comando.'
