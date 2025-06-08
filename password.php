@@ -1,23 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 
-<?php
-$host = 'db'; 
-$db = 'sistema_telefonico';
-$user = 'myuser';
-$pass = 'mypass';
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<h2>✅ Conexión exitosa a la base de datos MySQL</h2>";
-} catch (PDOException $e) {
-    echo "<h2>❌ Error de conexión: " . $e->getMessage() . "</h2>";
-}
-?>
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -49,7 +32,7 @@ try {
 
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Modal</title>
+  
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBxcG/lpHGWPQUkhZjootBvZEqlPfaw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -64,7 +47,7 @@ try {
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <h2 class="fw-bold mb-2 text-uppercase">Recuperación de contraseña</h2>
               <p class="text-white-50 mb-5">Ingrese su correo</p>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
@@ -72,24 +55,14 @@ try {
                 <label class="form-label" for="typeEmail">Correo</label>
               </div>
 
-              <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Contraseña</label>
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Recuperar</button>
+              <div>
+                <p class="small mb-0 mt-5 pt-1">¿Ya tienes una cuenta? <a href="login.php" class="text-white-50 fw-bold">Iniciar sesión</a></p>
               </div>
-
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="/crud/password.php">Olvidó su contraseña</a></p>
-
-              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit" ><a href="/crud/password.php" style="color: azure;">Login</a></button>
-
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="https://github.com/ckmilo10/integracion_continua_poli"><i class="fa-brands fa-github"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
+              
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Volver</button>
 
             </div>
-
-           
 
           </div>
         </div>
